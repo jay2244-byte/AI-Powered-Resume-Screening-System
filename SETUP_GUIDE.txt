@@ -1,0 +1,134 @@
+╔═══════════════════════════════════════════════════════════════╗
+║   AI-POWERED RESUME SCREENING SYSTEM - QUICK SETUP GUIDE     ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📋 PREREQUISITES
+─────────────────────────────────────────────────────────────────
+✓ Python 3.8 or higher
+✓ MongoDB installed and running
+✓ PostgreSQL installed and running
+✓ Google Gemini API key
+
+🚀 INSTALLATION STEPS
+─────────────────────────────────────────────────────────────────
+
+STEP 1: Install Python Dependencies
+────────────────────────────────────
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+
+STEP 2: Setup Databases
+────────────────────────
+MongoDB:
+  # Start MongoDB service
+  mongod
+  # or on Windows: net start MongoDB
+
+PostgreSQL:
+  # Create database
+  createdb resume_db
+  # or use pgAdmin GUI
+
+STEP 3: Configure Environment Variables
+────────────────────────────────────────
+1. Copy .env.example to .env:
+   cp .env.example .env
+
+2. Edit .env and update:
+   - GOOGLE_API_KEY (get from: https://makersuite.google.com/app/apikey)
+   - MONGO_URI (default: mongodb://localhost:27017/)
+   - SQL_URI (update with your PostgreSQL password)
+
+STEP 4: Start Backend Server
+─────────────────────────────
+cd backend
+python app.py
+
+✅ Backend will run on: http://localhost:8000
+
+STEP 5: Start Frontend (New Terminal)
+──────────────────────────────────────
+cd frontend
+streamlit run streamlit_app.py
+
+✅ Frontend will run on: http://localhost:8501
+
+🎯 USAGE
+─────────────────────────────────────────────────────────────────
+
+1. Open browser: http://localhost:8501
+2. Navigate to "Screen Resume" page
+3. Upload a resume (PDF or DOCX)
+4. Enter job requirements:
+   - Job Title: Software Engineer
+   - Skills: Python, Machine Learning, FastAPI, Docker
+   - Experience: 3 years
+   - Education: Bachelor's
+5. Click "Screen Resume"
+6. View comprehensive analysis!
+
+📄 SAMPLE RESUME FORMAT
+─────────────────────────────────────────────────────────────────
+Create a test resume with:
+✓ Name, email, phone
+✓ Skills (e.g., Python, Machine Learning, Docker)
+✓ Work experience with years (e.g., "3 years of experience")
+✓ Education (e.g., "B.Tech in Computer Science")
+✓ Optional: Certifications
+
+🔧 TROUBLESHOOTING
+─────────────────────────────────────────────────────────────────
+
+❌ MongoDB connection error?
+   → Check if mongod is running: mongod --dbpath /path/to/data
+   → Verify MONGO_URI in .env
+
+❌ PostgreSQL error?
+   → Check credentials in .env
+   → Verify database exists: psql -l
+
+❌ spaCy model not found?
+   → python -m spacy download en_core_web_sm
+
+❌ Gemini API error?
+   → Verify API key in .env file
+   → Check API quota/limits at Google AI Studio
+
+❌ Port already in use?
+   → Change port in config.py
+   → Or kill process using the port
+
+📚 ADDITIONAL RESOURCES
+─────────────────────────────────────────────────────────────────
+
+✓ Full documentation: README.md
+✓ API documentation: http://localhost:8000/docs
+✓ Sample data generator: dataset/sample_data.py
+✓ Angular setup: frontend/angular-app/README.md
+
+💡 TESTING
+─────────────────────────────────────────────────────────────────
+
+1. Generate sample data:
+   cd dataset
+   python sample_data.py
+
+2. Test API:
+   curl http://localhost:8000/
+
+3. Upload test resume through web interface
+
+🎓 FOR BTECH PROJECT
+─────────────────────────────────────────────────────────────────
+
+Key points to highlight:
+✓ Full-stack development (Backend + Frontend + Database)
+✓ Machine Learning implementation
+✓ LLM integration (Google Gemini)
+✓ Responsible AI (bias detection)
+✓ Explainable AI (transparency)
+✓ Real-world application
+
+═══════════════════════════════════════════════════════════════
+Good luck with your project! 🚀
+═══════════════════════════════════════════════════════════════
